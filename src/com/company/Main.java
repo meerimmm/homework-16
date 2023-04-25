@@ -1,14 +1,37 @@
 package com.company;
 public class Main {
+
+
+
     public static void main(String[] args) {
 
 
-      Circle circle= new Circle(10);
-        System.out.println("Область круга=  " + circle.getArea());
+        Shark shark=new Shark();
+        Eagle eagle=new Eagle();
+        Tutle turtle=new Tutle();
 
-        System.out.println("Диаметр круга= " + circle.getDiameter());
 
-        System.out.println( "Длина окружности круга= "+ Circle.getCircumference());
+        Animal[]animals={shark,eagle,turtle};
+
+
+        for(Animal animal:animals){
+            if(animal instanceof Shark){
+                Shark.sharks = new Shark[]{(Shark) animal};
+                shark.eat();
+                Shark.attack();
+            }else if(animal.getClass().getName().equals("Turtle")){
+                Tutle.turtles = new Tutle[]{(Tutle) animal};
+                turtle.eat();
+                Tutle.swim();
+            }else{
+                Eagle.eagles = new Eagle[]{(Eagle) animal};
+                eagle.eat();
+                Eagle.fly();
+            }
+        }
+
+
     }
-    }
+
+}
 
